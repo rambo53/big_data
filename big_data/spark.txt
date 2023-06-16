@@ -1,0 +1,14 @@
+/////////////////////// SPARK /////////////////////// 
+
+Permet d'utiliser hadoop, mais stockera les résultats en RAM sur ses machines plutôt que sur disque entre les étapes de map et reduce, ce qui permet d'accélérer le traitement des data.
+
+Permet d'effectuer des analyses plus complexes que de simple "map - reduce".
+
+Pour l'utilisation de spark avec python on utilise pyspark.
+
+Je vais utiliser un objet SparkContext via :
+
+from pyspark import SparkContext
+
+
+

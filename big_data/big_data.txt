@@ -1,0 +1,15 @@
+///////////////////// BIG DATA //////////////////////
+
+On peut définir le big data par le fait que le volume de data à traité dépasse un certain temps de traitements que l'on pourrait qualifier de raisonnable.
+Par exemple des données quotidienne à traité en moins de 24h qui prendrai plus de 24h.
+
+Le big data est caractérisé par les 3 V:
+- Volume
+- Vélocité
+- Variété
+
+On peut rajouter : valeur, variabilité, véracité.
+
+
+Pour contrer ce problème on utilisera le calcul distribué sur plusieurs cluster, afin d'avoir une scalabilité horizontale.
+On augmente le nombre de machines et non la puissance de calcul de notre machine.

@@ -1,0 +1,24 @@
+///////////////////////////// HADOOP /////////////////////////////
+
+Infrastructure logicielle dédiée à la mise en prtique du mapreduce et de la scalabilité.
+Utilise HDFS un système de fichier distribué.
+
+Utilise archi "master - slave", un serveur maitre qui sait où sont stocké physiquement les fichiers sur le cluster et comment ils sont dupliquer et distribués.
+
+Maitre = Name node (une sorte d'annuaire)
+Esclaves = data node (où sont stocké ces datas)
+
+On a aussi un name node secondaire en cas de panne du node maitre.
+
+Par défaut un fichier HDFS est découpé en bloc de 64mo qui seront envoyés dans diverses data node pour y être analysé.
+Pour la tolérance aux pannes HDFS duplique les bloc de datas sur les différentes nodes.
+
+Ainsi un "bloc A" sera dispo sur "data node 1" mais dupliqué sur "data node 2" aux côtés de "bloc b" par exemple.
+
+Le name node master contiendra les adresses de chaque bloc sur chaque data node.
+Exemple :
+
+Name node : data node 1 = bloc A, bloc B
+	    data node 2 = bloc B, bloc A
+
+Pour suivre l'avancée des traitements sur mes serveurs data node, j'ai un serveur "job tracker".

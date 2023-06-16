@@ -1,0 +1,27 @@
+///////////////////////// MAP REDUCE //////////////////////
+
+Un cadre générique pour la parallélisation des traitements.
+Utilise le paradigme de "diviser pour mieux régner", diviser un gros problème en plusieurs plus petits pour le résoudre.
+
+map = itérer sur des enregistrements pour extraire une info intéressante de chaque enregistrements.
+L'étape de map peut par exemple être réalisé par la transformation de données en dataframe via pandas.
+Je peux de plus appliquer un chunk sur mon fichier afin de le diviser en plusieurs ensemble plus petits.
+
+reduce = regrouper et trier les résultats intermédiaire, les agréger pour avoir le résultat final
+L'étape de reduce peut par exemple être le fait d'apliquer un traitement sur chaque ligne de mon df.
+
+
+Je peux donc paralléliser les traitements sur mes df issues de mon opération chunk.
+
+Exemple :
+
+J'ai un texte dans lequel je veux compte le nombre d'occurence d'une lettre.
+
+1. Split : je split mon texte en groupe de texte, puis je supprime les ponctuations
+
+2. Map : pour chaque mot de chaque groupe de texte je génére une paire [(jour,1), (beau,1)]
+
+3. Shuffle : regroupe toutes les valeurs ayant une clé commune dans chaque groupe de texte
+(jour, [1,1,1]) 
+
+4. Reduce : j'additionne simplement l'ensemble des valeurs de chaque mots, ex: jour = 3
